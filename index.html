@@ -13,7 +13,7 @@
 
     <script>
         function checkPalindrome(){
-            let a = document.getElementById("palindrome").value;
+            let a = document.getElementById("palindrome").value.toLowerCase();
             if(a.length == 0){
                 document.getElementById("result").innerHTML = "Empty String";
             }
