@@ -3,14 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hello</title>
 </head>
 <body>
-    <h2>Palindrome or Not</h2>
-    <input type="text" id="palindrome">
-    <button onclick="checkPalindrome()">Check</button>
-    <h4 id="result"></h4>
+    <div style="background-color: lightblue;width: 235px;height: 115px;border-radius: 5px;">
+        <h2>Palindrome or Not</h2>
+        <input type="text" id="palindrome">
+        <button onclick="checkPalindrome()">Check</button>
+        <h4 id="result"></h4>
+    </div>
 
+    <div style="background-color: lightgreen;width: 235px;height: 115px;border-radius: 5px;">
+        <h2>Prime or Not</h2>
+        <input type="number" id="prime" min="0">
+        <button onclick="checkPrime()">Check</button>
+        <h4 id="result1"></h4>
+    </div>
     <script>
         function checkPalindrome(){
             let a = document.getElementById("palindrome").value.toLowerCase();
@@ -27,19 +35,38 @@
                 }
                 else{
                     document.getElementById("result").innerHTML = "Not a Palindrome";
-                    
                 }
-                
+            } 
+        }
+        function checkPrime(){
+            let a = document.getElementById("prime").value;
+            if(a===""){
+                document.getElementById("result1").innerHTML = "Enter a value";
             }
-            
+            else if(a<1){
+                document.getElementById("result1").innerHTML = "Enter a positive value";
+            }
+            else if(a==1){
+                document.getElementById("result1").innerHTML = "Neither Prime nor Composite";
+            }
+
+            else{
+                let factors =0;
+                for(let i=2;i<(a/2)+1;i++){
+                    if(a%i == 0){
+                        factors += 1;
+                    }
+                }
+                if(factors >= 1){
+                    document.getElementById("result1").innerHTML = "Not Prime";
+                }
+                else{
+                    document.getElementById("result1").innerHTML = "Prime";
+                }
+            }
             
         }
     </script>
 </body>
 </html>
-
-
-
-
-
 
